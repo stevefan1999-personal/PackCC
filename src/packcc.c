@@ -2561,7 +2561,7 @@ code_reach_t generate_thunking_action_code(
         fputs("pcc_value_t null;\n", gen->stream);
     }
     write_characters(gen->stream, ' ', indent);
-    fprintf(gen->stream, "pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_%s_%d, %d, %d);\n",
+    fprintf(gen->stream, "pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (pcc_action_t) pcc_action_%s_%d, %d, %d);\n",
         gen->rule->data.rule.name, index, gen->rule->data.rule.vars.len, gen->rule->data.rule.capts.len);
     {
         int i;
